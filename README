@@ -1,0 +1,14 @@
+ Corpus Name: JW300
+     Package: JW300/v1/raw/en
+     Website: http://opus.nlpl.eu/JW300-v1.php
+     Release: v1
+Release date: Thu Aug 15 16:59:24 EEST 2019
+     License: CC-BY-NC-SA
+
+This corpus is part of OPUS - the open collection of parallel corpora
+OPUS Website: http://opus.nlpl.eu
+
+Please cite the following article if you use any part of the corpus in your own work: J. Tiedemann, 2012, Parallel Data, Tools and Interfaces in OPUS. In Proceedings of the 8th International Conference on Language Resources and Evaluation (LREC 2012)
+
+JW300 is a parallel corpus of over 300 languages with around 100 thousand parallel sentences per language pair on average. The corpus has been compiled by Zeljko Agic and Ivan Vulic.
+LicenseFor all practical purpose, the license is CC-BY-NC-SA.Still, jw.org maintains custom terms of use; in doubt, make sure to observe their license!
