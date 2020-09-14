@@ -2,9 +2,11 @@ import transformers
 import sys
 
 def translate(in_file, lang='ja-en', out_file='tgt.txt'):
-    tokenizer = transformers.AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-{}".format(lang), cache_dir='/private/home/jkasai/')
+    #tokenizer = transformers.AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-{}".format(lang), cache_dir='/private/home/jkasai/')
+    tokenizer = transformers.AutoTokenizer.from_pretrained("Helsinki-NLP/opus-mt-{}".format(lang))
     #tokenizer = transformers.AutoTokenizer.from_pretrained("/private/home/jkasai/projects/models")
-    model = transformers.AutoModelWithLMHead.from_pretrained("Helsinki-NLP/opus-mt-{}".format(lang), cache_dir='/private/home/jkasai/')
+    #model = transformers.AutoModelWithLMHead.from_pretrained("Helsinki-NLP/opus-mt-{}".format(lang), cache_dir='/private/home/jkasai/')
+    model = transformers.AutoModelWithLMHead.from_pretrained("Helsinki-NLP/opus-mt-{}".format(lang))
     #model = transformers.AutoModelWithLMHead.from_pretrained("/private/home/jkasai/projects/models")
     src_text = get_src_text(in_file)
     #translated = []
