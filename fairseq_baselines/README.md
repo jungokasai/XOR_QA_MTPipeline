@@ -1,6 +1,7 @@
 # OPUS MT Transformer Base Models for XOR-TyDi
 
-### Download trained transformer base models.
+### Download Trained Transformer Base Models
+
 Language |→ English |English →  | Bitext | # Sents | Preprocess | 
 ---|---|---|---|---|---|
 Arabic | [model](https://drive.google.com/uc?id=1gaMwPd6aXr1qGBAQWK_P05lL2eK9uKVI)|  [model](https://drive.google.com/uc?id=1gR78oAPtWlvesMD9oLEGJKnf0lUU6PS6)  | [multi_un](https://drive.google.com/uc?id=1wJOEYNT8szepLEKb8tQsnD36A7DIiXcj) | 9.76M | [moses](https://github.com/moses-smt/mosesdecoder/tree/master/scripts/tokenizer)+[BPE](https://github.com/glample/fastBPE) 
@@ -14,14 +15,26 @@ Russian | [model](https://drive.google.com/uc?id=1BElogTFzXfVf0Okb1hYwCjkAMSPyHV
 Telegu | [model](https://drive.google.com/uc?id=1iLGSX-5LgY2v8mIAxZHDGxMCUmwmbbER) | [model](https://drive.google.com/uc?id=1siz00Sek5qwIiG7CGEqwvvhiOc9Zlqxm) | [opus](https://drive.google.com/uc?id=1cJRcBZoPkUM8vovLuLf8vDFL674M5y72) | 116K   | [sentencepiece](https://github.com/google/sentencepiece) 
 Thai | [model](https://drive.google.com/uc?id=1rTLBabW7PQNBP6XcDvhZ6T1B4ba5R7A7) | [model](https://drive.google.com/uc?id=1XCfNVbjJfm-eL_IgWTlSnQSAPWsvTC63)  | [opus](https://drive.google.com/uc?id=1bBxT4M-ZZrU17-c2kFdVuObSby4WwH91) | 3.84M | [sentencepiece](https://github.com/google/sentencepiece) 
 
+### Requirements and Installation
 
+* [PyTorch](http://pytorch.org/) version >= 1.4.0
+* [fairseq](https://github.com/pytorch/fairseq) version = 0.9.0
+* Python version >= 3.6
 
+### Example Commands
 
+#### moses+BPE (ar, fi, and ru)
 ```bash
-python translate.py --in-file  ~/projects/XOR_QA_MTPipeline/data/ru_train_input.txt \
---out-file  xor.train.ru-en.en.pred --model-dir ~/xor_final/trans_ruen_base/ --moses
+python translate.py --in-file <input_file> \
+--out-file  <ouput_file> --model-dir <path_to_model_dir> --moses
 ```
+#### sentencepiece (all other languages)
 ```bash
-python translate.py --in-file  ~/projects/XOR_QA_MTPipeline/data/te_train_input.txt \
---out-file  xor.tran.te-en.en.pred --model-dir ~/xor_final/trans_teen_base/ --spiece
+python translate.py --in-file <input_file> \
+--out-file  <ouput_file> --model-dir <path_to_model_dir> --spiece
+```
+
+### Complete Scripts to Download and Run ja→en
+```bash
+python scripts/download_run_ja-en.py
 ```
