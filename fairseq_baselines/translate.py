@@ -21,7 +21,10 @@ parser.add_argument('--spiece', default=False, action='store_true',
                     help='Sentence Piece')
 parser.add_argument('--moses', default=False, action='store_true',
                     help='Moses tokenize/detokenize')
-
+parser.add_argument('--lenpen', default=1.0, type=float, metavar='N',
+                    help='length penalty')
+parser.add_argument('--beam', default=5, type=int, metavar='N',
+                    help='beam size')
 args = parser.parse_args()
 
 def translate(model_dir,
@@ -33,6 +36,8 @@ def translate(model_dir,
               shard_id,
               moses,
               spiece,
+              lenpen,
+              beam,
               ):
     if moses:
         tokenizer = 'moses'
@@ -70,7 +75,7 @@ def translate(model_dir,
     outputs = []
     for i in range(nb_batches):
         print('Batch ID: {}/{}'.format(i, nb_batches))
-        output = model.translate(src_sents[i*batch_size:(i+1)*batch_size])
+        output = model.translate(src_sents[i*batch_size:(i+1)*batch_size], lenpen=lenpen, beam=beam)
         outputs.extend(output)
     with open(out_file, 'wt') as fout:
         for output in outputs:
@@ -97,4 +102,6 @@ if __name__ == '__main__':
               args.shard_id,
               args.moses,
               args.spiece,
+              args.lenpen,
+              args.beam,
               )
