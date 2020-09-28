@@ -34,7 +34,7 @@ python translate.py --in-file <input_file> \
 --out-file  <ouput_file> --model-dir <path_to_model_dir> --spiece
 ```
 
-### Complete Scripts to Download and Run ja→en
+### Complete Script to Download and Run ja→en
 ```bash
 python scripts/download_run_ja-en.py
 ```

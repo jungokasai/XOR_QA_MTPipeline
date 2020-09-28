@@ -61,11 +61,10 @@ def translate(model_dir,
     src_sents = []
     model.cuda()
     with open(in_file) as fin:
-        with open(out_file, 'wt') as fout:
-            for i, line in enumerate(fin):
-                if start_id <= i < end_id:
-                    line = line.strip()
-                    src_sents.append(line)
+        for i, line in enumerate(fin):
+            if start_id <= i < end_id:
+                line = line.strip()
+                src_sents.append(line)
     nb_sents = len(src_sents)
     nb_batches = (nb_sents+batch_size-1)//batch_size
     outputs = []
